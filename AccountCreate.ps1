@@ -1,3 +1,4 @@
+#region Functions
 function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
     try {        
         $requestUrl = "$($script:url)/$($EndpointUrl)?ApiKey=$ApiKey"    
@@ -9,14 +10,12 @@ function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
         $_.exception.InnerException.InnerException.message
     }
 }
-
-
-$config = ConvertFrom-Json $configuration 
-
+#endregion Functions
 
 #Initialize default properties
 $p = $person | ConvertFrom-Json;
 $m = $manager | ConvertFrom-Json;
+$config = ConvertFrom-Json $configuration 
 $success = $False;
 $auditMessage = "for person " + $p.DisplayName;
 $script:url = $config.Url
@@ -25,14 +24,11 @@ $t4eUserGroupGuidUrl = $config.t4eUserGroupGuid
 $t4UpdateGuidUrl = $config.t4eUpdateGuid
 
 
-write-verbose -verbose ($p.externalId   )
 #Change mapping here
 $account = [PSCustomObject]@{
-    EmployeeId = "d.vandebroek@Coloriet.nl" # $p.externalId      # Employee Number AFAS
-    UserId     = "TDDeHoven" # $p.Accounts.MicrosoftActiveDirectory.SamAccountName; # UserName Ultmio (User AD)
+    EmployeeId = $p.externalId      # Employee Number AFAS
+    UserId     = $p.Accounts.MicrosoftActiveDirectory.SamAccountName; # UserName Ultmio (User AD)
 }
-
-
 
 if (-Not($dryRun -eq $true)) {
     try {
@@ -46,7 +42,7 @@ if (-Not($dryRun -eq $true)) {
 
         $userResult = ( Invoke-UltimoRestMethod -EndpointUrl $t4UpdateGuidUrl -ApiKey $ApiKey -body $createUserRequest).properties.message
         # TODO Function is not fully functional in Ultimo (When this is done the error handling must be modified)
-        if( $userResult -match "Geen medewerker gevonden"){  
+        if ( $userResult -match "Geen medewerker gevonden") {  
             throw $userResult
         }
         #TODO 

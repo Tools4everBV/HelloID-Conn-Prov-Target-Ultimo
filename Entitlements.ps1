@@ -3,9 +3,8 @@ $config = ConvertFrom-Json $configuration
 
 $script:url = ($config.Url).TrimEnd("/")
 $apiKey = $config.Apikey
-$t4eGroupGuidUrl = $config.t4eGroupGuid  # ultimo uses a GUID in the apipoint to get the groups        #Example: https://coloriet.ultimo.com/api/V1/Action/56ea89e2-2dfe-42da-f11a-234e38706d80?
+$t4eGroupGuidUrl = $config.t4eGroupGuid
 #endregion Configuration Data
-
 
 #region Functions
 function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
@@ -17,18 +16,16 @@ function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
         throw $_.exception.message       
     }
 }
-
-
 #endregion Functions
 
-try{
-    $resultGroup= (Invoke-UltimoRestMethod -EndpointUrl $t4eGroupGuidUrl -ApiKey $ApiKey).properties.data
-}catch{
+try {
+    $resultGroup = (Invoke-UltimoRestMethod -EndpointUrl $t4eGroupGuidUrl -ApiKey $ApiKey).properties.data
+} catch {
     Write-Verbose =verbose "$($_.Exception.Message)"
 }
 
 
-# Group Persmission Formatter HELLOID
+# Group persmission formatter HelloID
 $permissions = [System.Collections.Generic.List[psobject]]::new()
 foreach ($g in $resultGroup) {
     $permission = @{
@@ -41,4 +38,4 @@ foreach ($g in $resultGroup) {
 }
    
 
-Write-Output ($permissions |ConvertTo-Json)
+Write-Output ($permissions | ConvertTo-Json)

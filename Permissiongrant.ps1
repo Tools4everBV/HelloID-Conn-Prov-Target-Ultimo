@@ -1,3 +1,4 @@
+#region Functions
 function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
     try {        
         $requestUrl = "$($script:url)/$($EndpointUrl)?ApiKey=$ApiKey"    
@@ -7,34 +8,29 @@ function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
         throw $_.exception.message       
     }
 }
+#endregion Functions
 
-#Initialize default properties
+#region Configuration Data
 $success = $False;
-$auditMessage = $p.DisplayName;
+$auditMessage = "for person " + $p.DisplayName;
     
 $p = $person | ConvertFrom-Json;
 $aRef = $accountReference | ConvertFrom-Json;
-$pRef = $permissionReference | ConvertFrom-json;
-    
-#Retrieve account information for notifications
+$pRef = $permissionReference | ConvertFrom-json; 
 $config = ConvertFrom-Json $configuration
-
-# The permissionReference contains the Identification object provided in the retrieve permissions call
-Write-Verbose -verbose $permissionReference
-Write-Verbose -verbose $aRef
-    
 $script:url = $config.Url 
-$ApiKey =  $config.apikey
+$ApiKey = $config.apikey
 $t4UpdateGuidUrl = $config.t4eUpdateGuid    
+#endregion Configuration Data
 
-#Change mapping here 
+#Change mapping here
 $account = [PSCustomObject]@{
     EmployeeId = $p.externalId  # Employee Number
-    UserId     = $aRef              # UserName Ultmio (User AD)
+    UserId     = $aRef          # UserName Ultmio (User AD)
     GroupId    = $pRef.id
 }    
     
-if (-Not($dryRun -eq $false)) {
+if (-Not($dryRun -eq $true)) {
     try {   
         $UpdateUserRequest = @{       
             _AuthId      = "$((Get-Date).ToString("yyyyMMddhhmmssMs"))"
