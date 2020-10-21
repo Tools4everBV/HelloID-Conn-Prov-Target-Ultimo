@@ -10,7 +10,7 @@ function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
 
 #Initialize default properties
 $success = $False;
-$auditMessage = "asdasd";
+$auditMessage = $p.DisplayName;
     
 $p = $person | ConvertFrom-Json;
 $aRef = $accountReference | ConvertFrom-Json;

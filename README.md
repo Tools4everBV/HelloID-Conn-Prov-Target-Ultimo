@@ -1,18 +1,19 @@
 # HelloID-Conn-Prov-Target-Ultimo
 
-## This is a work in progress
+![image](https://www.ultimo.com/cms/wp-content/uploads/2020/02/Ultimo.png)
 
-
-
-![image](./assets/hid.png)
+##### Note!  This connector is not fully tested yet
 
 
 ## Table of contents
 
- - Introduction
- - Prerequisites
- - Getting started
- - Design considerations
+* [Introduction](#Introduction)
+* [Prerequisites](#Prerequisites)
+* [Getting started](#Getting-started)
+  * [Configuration Settings](#Configuration-Settings)
+  * [Design considerations](#Design-considerations)
+
+---
 
 ## Introduction
 
@@ -29,11 +30,18 @@ Note that this connector is based on a test environment provided by Coloriet. At
  - Credentials to authorize with Ultimo
  - Import and Export connectors in Ultimo (These connectors are customer-specific and usually created by Ultimo consultants)
 
-
+---
 
 ## Getting started
 
+#### Configuration Settings
+ 
+You must enter the URL and the API key of your Ultimo Environment. And besides that, you will need a GUID of objects to specify the request endpoint. This GUID refers to an object in the Connector in Ultimo.
+So there is a GUID to get the groups, get the Users, and one for the update calls. You must specify these in the configuration of your Connector.
 
+![image](./UltimoExample..png)
+
+---
 
 ## Design considerations
 
@@ -41,7 +49,7 @@ Note that this connector is based on a test environment provided by Coloriet. At
 - Account Delete will only revoke the groupAssignment
 - Account Disable and Enable are not used. This is not possible in Ultimo
 
-- Permission grand, assign the Group to a Ultimo user 
+- Permission Grand, assign the Group to a Ultimo user 
 - Permission Revoke is not used, because when you receive a new Group/Entitlement. HelloID triggers both events at the same time (Assignment of the new and revoke of the old assignment). With might result in ending up with an account without an entitlement. When the Grand event is first processed and the revoke event will eventually remove the entitlement again.
 
 
