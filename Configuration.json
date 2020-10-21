@@ -1,0 +1,56 @@
+[
+  {
+    "key": "url",
+    "type": "input",
+    "defaultValue": "",
+    "templateOptions": {
+      "label": "Ultimo Url",
+      "placeholder": "https://coloriet.ultimo.com/api/V1/Action",
+      "required": true
+    }
+  },
+  {
+    "key": "apiKey",
+    "type": "input",
+    "defaultValue": "",
+    "templateOptions": {
+      "label": "API Key",
+      "placeholder": "Please enter the API Key of your Ultmio environment",
+      "type": "password",
+      "required": true
+    }
+  },
+  {
+    "key": "t4eGroupGuid",
+    "type": "input",
+    "defaultValue": "",
+    "templateOptions": {
+      "label": "GroupGuid URL",
+      "placeholder": "56ea89e2-2dfe-42da-f11a-234e38706x80",
+      "required": true,
+      "description": "Ultimo uses a GUID in the Request URl to receive data"
+    }
+  },
+  {
+    "key": "t4eUpdateGuid",
+    "type": "input",
+    "defaultValue": "",
+    "templateOptions": {
+      "label": "UpdateGUID URL",
+      "placeholder": "56ea89e2-2dfe-42da-f11a-234e38706x80",
+      "required": true,
+      "description": "Ultimo uses a GUID in the Request URl to updata data"
+    }
+  },
+  {
+    "key": "t4eUserGroupGuid",
+    "type": "input",
+    "defaultValue": "",
+    "templateOptions": {
+      "label": "UserGroupGuid URL",
+      "placeholder": "56ea89e2-2dfe-42da-f11a-234e38706x80",
+      "required": true,
+      "description": "Ultimo uses a GUID in the Request URl to receive data"
+    }
+  }
+]
