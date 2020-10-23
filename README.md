@@ -20,7 +20,7 @@
 Ultimo is a flexible Enterprise Asset Management (EAM) Cloud platform with a SOAP-based web service to programmatically interact with its data. 
 The HelloID target connector can create and update Ultimo-Accounts and grand permissions to Ultmio-Groups based on the connectors created in Ultimo
 
-Note that this connector is based on a test environment provided by Coloriet. At the moment of writing, the import connector does not work fully functional. The web service now only returns a message and does not actually modifies ultimo. (This may cause, adjustments needed in the create and update scrip) So the code base is not fully tested.
+Note that this connector is based on a test environment provided by one of our customers At the moment of writing, the import connector does not work fully functional. The web service now only returns a message and does not actually modifies ultimo. (This may cause, adjustments needed in the create and update scrip) So the code base is not fully tested.
 
 ---
 

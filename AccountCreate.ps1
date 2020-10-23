@@ -5,9 +5,7 @@ function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
         $responseRestMethod = Invoke-RestMethod -uri  $requestUrl -Method POST -Body $body  -Proxy:$proxy  -UseBasicParsing -ContentType "application/json"
         Write-Output $responseRestMethod   
     } catch {    
-        $_.exception.message
-        $_.exception.InnerException.Message
-        $_.exception.InnerException.InnerException.message
+        throw $_.exception.message       
     }
 }
 #endregion Functions
