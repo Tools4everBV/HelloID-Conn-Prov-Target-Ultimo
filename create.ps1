@@ -1,4 +1,6 @@
 #region Functions
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls10 -bor [Net.SecurityProtocolType]::Tls11 -bor [Net.SecurityProtocolType]::Tls12
+
 function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
     try {        
         $requestUrl = "$($script:url)/$($EndpointUrl)?ApiKey=$ApiKey"    

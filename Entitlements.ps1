@@ -6,6 +6,7 @@ $apiKey = $config.Apikey
 $t4eGroupGuidUrl = $config.t4eGroupGuid
 #endregion Configuration Data
 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls10 -bor [Net.SecurityProtocolType]::Tls11 -bor [Net.SecurityProtocolType]::Tls12
 #region Functions
 function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
     try {        
@@ -21,7 +22,7 @@ function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
 try {
     $resultGroup = (Invoke-UltimoRestMethod -EndpointUrl $t4eGroupGuidUrl -ApiKey $ApiKey).properties.data
 } catch {
-    Write-Verbose =verbose "$($_.Exception.Message)"
+    Write-Verbose -verbose "$($_.Exception.Message)"
 }
 
 

@@ -1,4 +1,5 @@
 #region Functions
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls10 -bor [Net.SecurityProtocolType]::Tls11 -bor [Net.SecurityProtocolType]::Tls12
 function Invoke-UltimoRestMethod ($EndpointUrl, $ApiKey, $body , $Proxy) {
     try {        
         $requestUrl = "$($script:url)/$($EndpointUrl)?ApiKey=$ApiKey"    
@@ -20,7 +21,7 @@ $pRef = $permissionReference | ConvertFrom-json;
 $config = ConvertFrom-Json $configuration
 $script:url = $config.Url 
 $ApiKey = $config.apikey
-$t4UpdateGuidUrl = $config.t4eUpdateGuid    
+$t4UpdateGuidUrl = $config.t4eUpdateGuid 
 #endregion Configuration Data
 
 #Change mapping here
@@ -45,7 +46,7 @@ if (-Not($dryRun -eq $true)) {
             throw $userResult
         }   
     
-        $auditMessage = "Successfully"
+        $auditMessage = " successfully"
         $success = $true
     } catch {
         $auditMessage = " : $($_.Exception.Message)"

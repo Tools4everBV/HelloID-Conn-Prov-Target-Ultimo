@@ -2,7 +2,6 @@
 
 ![image](https://www.ultimo.com/cms/wp-content/uploads/2020/02/Ultimo.png)
 
-##### Note!  This connector is not fully tested yet
 
 
 ## Table of contents
