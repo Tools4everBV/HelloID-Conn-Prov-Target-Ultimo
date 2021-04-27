@@ -51,5 +51,5 @@ So there is a GUID to get the groups, get the Users, and one for the update call
 - Permission Grand, assign the Group to a Ultimo user   (A Ultmio user can be member of one group at the time. One to one relation)
 - Permission Revoke is not used, because when you receive a new Group/Entitlement. HelloID triggers both events at the same time (Assignment of the new and revoke of the old assignment). With might result in ending up with an account without an entitlement. When the Grand event is first processed and the revoke event will eventually remove the entitlement again.
 
-
----
+# HelloID Docs
+The official HelloID documentation can be found at: https://docs.helloid.com/
