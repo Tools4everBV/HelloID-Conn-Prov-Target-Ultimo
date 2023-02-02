@@ -22,11 +22,10 @@
 
 ## Introduction
 
-Ultimo is a flexible Enterprise Asset Management (EAM) Cloud platform with a SOAP-based web service to programmatically interact with its data. 
-The HelloID target connector can create and update Ultimo-Accounts and grant permissions to Ultmio-Groups based on the connectors created in Ultimo.
+Ultimo is a flexible Enterprise Asset Management (EAM) Cloud platform with a REST-based web service to programmatically interact with its data. 
+The HelloID target connector has the capability to create and update Ultimo accounts, as well as grant permissions to Ultimo groups, based on the connectors established within Ultimo.
 
-Note that this connector is based on a test environment provided by one of our customers At the moment of writing, the import connector isn't fully functional. The web service only returns a message and does not modify Ultimo. (This may cause, adjustments needed in the create and update scrip) So the code base is not fully tested.
-
+It is important to note that this connector has been developed using a test environment provided by one of our customers. At present, the import connector is not fully operational and the web service only returns a message without modifying Ultimo. As a result, adjustments may be required in the create and update scripts, and the code base has not undergone complete testing.
 ---
 
 
@@ -41,8 +40,9 @@ Note that this connector is based on a test environment provided by one of our c
 
 #### Configuration Settings
  
-You must enter the URL and the API key of your Ultimo Environment. And besides that, you will need a GUID of objects to specify the request endpoint. This GUID refers to an object in the Connector in Ultimo.
-So there is a GUID to get the groups, get the Users, and one for the update calls. You must specify these in the configuration of your Connector.
+You must enter the URL and the API key of your Ultimo Environment. Additionally, you will need a GUID of objects to specify the request endpoint. This GUID refers to an object in the Connector in Ultimo. 
+
+There are separate GUIDs for retrieving groups, retrieving users, and making update calls, all of which must be specified in the configuration of your connector.
 
 ![image](./UltimoExample..png)
 
