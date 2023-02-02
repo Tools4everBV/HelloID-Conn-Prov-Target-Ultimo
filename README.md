@@ -6,8 +6,7 @@
 
 <br />
 
-![image](https://www.ultimo.com/cms/wp-content/uploads/2020/02/Ultimo.png)
-
+![image](https://www.ultimo.com/wp-content/themes/ultimo-software-solutions/dist/images/ifs-ultimo-rgb.svg)
 
 
 ## Table of contents
@@ -25,9 +24,7 @@
 Ultimo is a flexible Enterprise Asset Management (EAM) Cloud platform with a REST-based web service to programmatically interact with its data. 
 The HelloID target connector has the capability to create and update Ultimo accounts, as well as grant permissions to Ultimo groups, based on the connectors established within Ultimo.
 
-It is important to note that this connector has been developed using a test environment provided by one of our customers. At present, the import connector is not fully operational and the web service only returns a message without modifying Ultimo. As a result, adjustments may be required in the create and update scripts, and the code base has not undergone complete testing.
----
-
+> ❗ It is important to note that this connector has been developed using a test environment provided by one of our customers. At present, the import connector is not fully operational and the web service only returns a message without modifying Ultimo. As a result, adjustments may be required in the create and update scripts, and the code base has not undergone complete testing.
 
 ## Prerequisites
 
