@@ -32,7 +32,7 @@ $account = [PSCustomObject]@{
 
 if (-Not($dryRun -eq $true)) {
     try {
-      
+    
         $createUserRequest = @{       
             _AuthId      = "$((Get-Date).ToString("yyyyMMddhhmmssMs"))"
             _AuthEmpId   = $account.EmployeeId 
@@ -47,7 +47,7 @@ if (-Not($dryRun -eq $true)) {
         }
         #TODO 
         # If Users already exist (Get user) At moment of writing the connector in Ultimo is not implemented  ?
-       
+
         $filter = @{
             filteruserid = $account.UserId
         } | ConvertTo-Json

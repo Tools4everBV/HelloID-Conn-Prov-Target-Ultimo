@@ -37,7 +37,7 @@ if (-Not($dryRun -eq $true)) {
             filteruserid = $account.UserId
         } | ConvertTo-Json
         $userResult = (Invoke-UltimoRestMethod -EndpointUrl $t4eUserGroupGuidUrl -ApiKey $ApiKey -body $filter).properties.output.collection
-      
+
         if ($null -eq $userResult) {
             throw "No user found with userid: '$($account.UserId)'"
         }
@@ -48,15 +48,15 @@ if (-Not($dryRun -eq $true)) {
             _AuthUserId  = $account.UserId 
             _AuthGroupId = $userResult.GroupId
         } | ConvertTo-Json 
-       
+
         $userResult = ( Invoke-UltimoRestMethod -EndpointUrl $t4UpdateGuidUrl -ApiKey $ApiKey -body $UpdateUserRequest).properties.message
-      
+
         if ( $userResult -match "Geen medewerker gevonden") {  
             throw $userResult
         }     
         $auditMessage = "Successfully"
         $success = $true
-     
+
     } catch {
         $auditMessage = " : $($_.Exception.Message)"
     }

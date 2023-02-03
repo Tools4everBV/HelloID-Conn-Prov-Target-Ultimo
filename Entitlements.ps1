@@ -37,6 +37,6 @@ foreach ($g in $resultGroup) {
     }
     $permissions.add( $permission )
 }
-   
+
 
 Write-Output ($permissions | ConvertTo-Json)

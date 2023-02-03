@@ -39,9 +39,9 @@ if (-Not($dryRun -eq $true)) {
             _AuthUserId  = $account.UserId 
             _AuthGroupId = $account.groupId
         } | ConvertTo-Json 
-       
+
         $userResult = ( Invoke-UltimoRestMethod -EndpointUrl $t4UpdateGuidUrl -ApiKey $ApiKey -body $UpdateUserRequest).properties.message
-           
+
         if ( $userResult -match "Geen medewerker gevonden") {  
             throw $userResult
         }   
