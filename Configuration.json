@@ -5,7 +5,7 @@
     "defaultValue": "",
     "templateOptions": {
       "label": "Ultimo Url",
-      "placeholder": "https://coloriet.ultimo.com/api/V1/Action",
+      "placeholder": "https://customer.ultimo.com/api/V1/Action",
       "required": true
     }
   },
