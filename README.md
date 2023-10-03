@@ -2,7 +2,7 @@
 
 | :warning: Warning |
 |:---------------------------|
-| Ultimo uses a generic API which needs to be configured for each customer by an Ultimo consultant. Therefore this connector will not work out of the box without assistance from a Ultimo consultant       |
+| Ultimo uses a generic User API which needs to be configured for each customer by an Ultimo consultant. Therefore this connector will **not work** out of the box without assistance from a Ultimo consultant and HelloID consultant       |
 
 | :information_source: Information |
 |:---------------------------|
